@@ -2,7 +2,7 @@ const TodoList = ({data,onDelete}) => {
     
     return ( 
         <div className="w-full max-w-screen-md bg-white p-2 md:p-4 rounded-xl">
-        {data.map((todo)=>{
+        {/* {data.map((todo)=>{
           return(
             <div key={todo.id} className=" flex items-center justify-between border 
         border-gray-100 mb-4 p-3 md:p-4 rounded-xl">
@@ -28,7 +28,7 @@ const TodoList = ({data,onDelete}) => {
         </div>
           )
         })
-        }
+        } */}
       </div>
 
      );
