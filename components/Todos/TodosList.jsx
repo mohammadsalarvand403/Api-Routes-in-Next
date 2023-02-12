@@ -1,13 +1,19 @@
+import Link from "next/link";
+
 const TodoList = ({data,onDelete}) => {
   if(!data)return <p className="flex text-right justify-center">todos has Not yet been Added!</p>;
     return ( 
         <div className="w-full max-w-screen-md bg-white p-2 md:p-4 rounded-xl">
         {data.map((todo)=>{
           return(
-            <div key={todo.id} className=" flex items-center justify-between border 
+          <div key={todo.id} className=" flex items-center justify-between border 
         border-gray-100 mb-4 p-3 md:p-4 rounded-xl">
-          <span>{todo.title}</span>
-          <span>{todo.description}</span>
+            <Link href={`/todos/${todo._id}`}>
+          
+              <span>{todo.title}</span>
+            
+            </Link>
+          
           <div className="flex gap-x-3 items-center">
             <button className="">
             <svg className="w-6 h-6 stroke-green-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
