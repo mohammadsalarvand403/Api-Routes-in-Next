@@ -3,7 +3,7 @@ import { useState } from "react";
 const AddNewTodo = ({onAdd}) => {
     const [formData,setFormData]=useState({
       title:"",
-    description:""
+      description:""
     });
     const [isShow,setIsShow]=useState(false);
     const changeHandler=(e)=>{

@@ -9,18 +9,16 @@ export default function Home() {
  useEffect(() => {
   async function getData(){
     const {data}=await axios.get("/api/todos")
-  console.log(data.todos);
   setData(data.todos)
   }
 getData()
   
- },[data]);
+ },[]);
 
   const deleteTodo=(id)=>{
     axios
     .delete(`/api/todos/${id}`)
     .then(({data})=>{
-      console.log(data);
       setData(data.todos)
       setLoading(false)
     }).catch(err=>console.log(err))
@@ -28,14 +26,12 @@ getData()
   
   const addTodo=(e,formData)=>{
     e.preventDefault();
-    console.log(formData);
-    // axios
-    // .post(`/api/todos/`,{formData})
-    // .then(({data})=>{
-    //   console.log(data);
-    //   setData(data.todos)
-    //   setLoading(false)
-    // }).catch(err=>console.log(err))
+    axios
+    .post(`/api/todos/`,{formData})
+    .then(({data})=>{
+      setData(data.todos)
+      setLoading(false)
+    }).catch(err=>console.log(err))
   }
     if(loading) return<div>loading...</div>;
 
