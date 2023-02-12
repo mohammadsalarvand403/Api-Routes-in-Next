@@ -6,6 +6,7 @@ export default function Home() {
  const [data,setData]=useState(null);
  const [loading,setLoading]=useState(null);
 
+
  useEffect(() => {
   async function getData(){
     const {data}=await axios.get("/api/todos")
@@ -34,7 +35,7 @@ getData()
     }).catch(err=>console.log(err))
   }
     if(loading) return<div>loading...</div>;
-
+    
   return (
    <div>
      <nav className=" flex justify-center font-bold text-center py-3 px-3 border-b-2">

@@ -9,8 +9,9 @@ const AddNewTodo = ({onAdd}) => {
     const changeHandler=(e)=>{
       e.preventDefault();
       setFormData({...formData,[e.target.name]:e.target.value})
+
     }
-    console.log(formData)
+ 
     if(!isShow){  
       return(
         <div className="">
