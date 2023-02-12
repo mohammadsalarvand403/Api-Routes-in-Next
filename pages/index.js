@@ -1,20 +1,14 @@
 import AddNewTodo from "@/components/AddNewTodo/AddNewTodo";
 import TodoList from "@/components/Todos/TodosList";
+import Todo from "@/server/models/Todo";
 import axios from "axios"
 import { useEffect, useState } from "react"
-export default function Home() {
- const [data,setData]=useState(null);
- const [loading,setLoading]=useState(null);
+export default function Home({todos}) {
+ const [data,setData]=useState(todos);
+ 
 
 
- useEffect(() => {
-  async function getData(){
-    const {data}=await axios.get("/api/todos")
-  setData(data.todos)
-  }
-getData()
-  
- },[]);
+
 
   const deleteTodo=(id)=>{
     axios
@@ -34,7 +28,7 @@ getData()
       setLoading(false)
     }).catch(err=>console.log(err))
   }
-    if(loading) return<div>loading...</div>;
+   
     
   return (
    <div>
@@ -52,4 +46,14 @@ getData()
      </div>
    </div>
   )
+}
+export async function getServerSideProps(context){
+  
+  const todos=await Todo.find({});
+
+  return{
+      props:{
+          todos:JSON.parse(JSON.stringify(todos))
+      }
+  }
 }
