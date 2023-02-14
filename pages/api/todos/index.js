@@ -1,8 +1,8 @@
 import dbConnect from "@/server/utils/dbConnect"
 import Todo from "@/server/models/Todo";
-import { todos } from "@/data/todos";
 
 dbConnect();
+
 export default async function handler(req, res) {
    const {method,body} =req;
   if (method ==="POST") {

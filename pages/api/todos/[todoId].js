@@ -7,10 +7,18 @@ export default async function handler(req, res) {
     if (method === "DELETE") {
         await Todo.findByIdAndDelete(query.todoId);
         const todos= await Todo.find({});
-        return res.status(200).json({message:"delete todo successfull",todos})
+        return res.status(200).json({message:"todo delete successfull",todos})
     } else if(method === "GET"){
         const todo=await getOneTodo(query);
         res.status(200).json({message:"todo loaded",todo})
+    }else if(method === "PUT"){
+      const {body}=req;
+      const todo=await Todo.findById(query.todoId)
+      todo.title=body.todo.title;
+      todo.description=body.todo.description;
+      await todo.save();
+      const todos= await Todo.find({});
+      return res.status(200).json({message:"todo edit successfull",todos})
     }
   }
 
