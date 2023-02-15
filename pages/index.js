@@ -1,5 +1,6 @@
 import AddNewTodo from "@/components/AddNewTodo/AddNewTodo";
 import TodoList from "@/components/Todos/TodosList";
+import Layout from "@/containers/Layout";
 import Todo from "@/server/models/Todo";
 import axios from "axios"
 import {  useState } from "react"
@@ -30,16 +31,15 @@ export default function Home({todos}) {
    }
     
   return (
-   <div>
-    
-     <div className="container p-2 xl:max-w-screen-xl mx-auto">
+   <Layout>
+    <div className="container p-2 xl:max-w-screen-xl mx-auto">
       <section className="flex md:flex-row md:items-start md:justify-center gap-x-8 flex-col
        gap-y-8 ">
         <AddNewTodo onAdd={addTodo}/>
         <TodoList data={data} onDelete={deleteTodo} onComplete={completeHandler}/>
       </section>
      </div>
-   </div>
+   </Layout>
   )
   }
 export async function getServerSideProps(context){

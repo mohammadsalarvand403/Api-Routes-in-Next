@@ -1,3 +1,4 @@
+import Layout from "@/containers/Layout";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -23,8 +24,9 @@ const EditTodo = ({todo}) => {
       }
     const router =useRouter()
     return (
-        <div className="">
-        <h1>todo Edit page</h1>
+        <Layout>
+        <div className="flex justify-center">
+        <h1 className=" flex justify-center left-0 right-0">todo Edit page</h1>
                     <form className="w-full max-w-screen-md bg-white p-2 md:p-4 rounded-xl"
                     onSubmit={submitHandler}>
                     <div className="mb-4">
@@ -79,6 +81,7 @@ const EditTodo = ({todo}) => {
                 </div>
                 </form>
         </div>
+        </Layout>
       );
 }
  

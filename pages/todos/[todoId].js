@@ -1,12 +1,13 @@
+import Layout from "@/containers/Layout";
 import { getOneTodo } from "../api/todos/[todoId]";
 
 const TodoPage = ({todo}) => {
     return (
-        <div className="">
+        <Layout>
             <h1>todo detail page</h1>
             <h2>title:{todo.title}</h2>
             <p>description:{todo.description}</p>
-        </div>
+        </Layout>
       );
 }
  
