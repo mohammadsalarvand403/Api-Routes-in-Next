@@ -31,11 +31,7 @@ export default function Home({todos}) {
     
   return (
    <div>
-     <nav className=" flex justify-center font-bold text-center py-3 px-3 border-b-2">
-      <h1 className="">
-        TodoList App Using Next.js & TailwindCss
-      </h1>
-     </nav>
+    
      <div className="container p-2 xl:max-w-screen-xl mx-auto">
       <section className="flex md:flex-row md:items-start md:justify-center gap-x-8 flex-col
        gap-y-8 ">

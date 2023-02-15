@@ -4,6 +4,7 @@ import { useState } from "react";
 import { getOneTodo } from "../api/todos/[todoId]";
 
 const EditTodo = ({todo}) => {
+    const [checked,setChecked]=useState(todo.isCompleted)
     const [formData,setFormData]=useState({
         title:todo.title,
         description:todo.description
@@ -14,7 +15,7 @@ const EditTodo = ({todo}) => {
       }
       const submitHandler=(e)=>{
         e.preventDefault();
-        axios.put(`/api/todos/${router.query.todoId}`,{todo:formData}).then((res)=>{
+        axios.put(`/api/todos/${router.query.todoId}`,{todo:{...formData,isCompleted:checked}}).then((res)=>{
             router.push('/')
         }).catch((e)=>{
             console.log(e);
@@ -53,6 +54,15 @@ const EditTodo = ({todo}) => {
                         focus:border-none w-full block transition duration-300 ease-out"
                         ></textarea>
                 </div>
+                <input 
+                name="checked"
+                type="checkbox" 
+                id="checked" 
+                checked={checked}
+                onChange={()=>setChecked(!checked)}                
+                >
+                </input>
+                <label htmlFor="checked">isComplete todo</label>
                 <div className="flex items-center gap-x-4">
                     <button onClick={()=>router.push("/")} type="button" 
                     className=" w-full py-2 text-blue-400 border border-blue-500 rounded-lg 
