@@ -23,7 +23,7 @@ export default function Home({todos}) {
   }
    const completeHandler=(id)=>{
     axios
-    .post(`/api/todos/Complete/${id}`)
+    .put(`api/todos/complete/${id}`)
     .then(({data})=>{
       setData(data.todos)
     }).catch(err=>console.log(err))
