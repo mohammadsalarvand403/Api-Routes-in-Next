@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import {signIn , signOut} from "next-auth/react"
 const Header = () => {
     return (
         <nav className=" flex justify-between font-bold text-center py-3 px-3 border-b-2">
@@ -23,14 +23,10 @@ const Header = () => {
           </Link>
          </li>
         <li>
-        <Link href={"#"}>
-          sgin in
-          </Link>
+          <button onClick={()=>signIn('github')}>signin</button>
         </li>
         <li>
-        <Link href={"#"}>
-          sgin out
-          </Link>
+        <button onClick={()=>signOut('github')}>signout</button>
         </li>
         
         </ul>
