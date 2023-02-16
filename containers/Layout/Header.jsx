@@ -14,8 +14,8 @@ const Header = () => {
           </Link>
           </li>
          <li>
-         <Link href={"/todod"}>
-          Todos
+         <Link href={"/Protected/protected-ssr"}>
+         Protected
           </Link>
          </li>
          <li>
