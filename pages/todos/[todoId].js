@@ -1,12 +1,15 @@
 import Layout from "@/containers/Layout";
+import dbConnect from "@/server/utils/dbConnect";
 import { getOneTodo } from "../api/todos/[todoId]";
 
 const TodoPage = ({todo}) => {
     return (
         <Layout>
-            <h1>todo detail page</h1>
-            <h2>title:{todo.title}</h2>
-            <p>description:{todo.description}</p>
+        <div className=" ">
+        <h1 className="text-lg font-bold mb-4">todo detail page</h1>
+        <h2><strong className="font-bold">title:</strong>{todo.title}</h2>
+        <p><strong className="font-bold">description:</strong>{todo.description}</p>
+        </div>
         </Layout>
       );
 }
@@ -14,6 +17,7 @@ const TodoPage = ({todo}) => {
 export default TodoPage;
 
 export async function getServerSideProps(context){
+    dbConnect()
     const {query}=context;
     const todo=await getOneTodo(query);
 

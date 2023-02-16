@@ -2,6 +2,7 @@ import AddNewTodo from "@/components/AddNewTodo/AddNewTodo";
 import TodoList from "@/components/Todos/TodosList";
 import Layout from "@/containers/Layout";
 import Todo from "@/server/models/Todo";
+import dbConnect from "@/server/utils/dbConnect";
 import axios from "axios"
 import {  useState } from "react"
 export default function Home({todos}) {
@@ -43,7 +44,7 @@ export default function Home({todos}) {
   )
   }
 export async function getServerSideProps(context){
-  
+  dbConnect()
   const todos=await Todo.find({});
 
   return{

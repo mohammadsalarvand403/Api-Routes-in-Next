@@ -4,7 +4,9 @@ const Layout = ({children}) => {
     return (  
         <div>
             <Header/>
-                {children}
+            <div className="container p-2 xl:max-w-screen-xl mx-auto">
+            {children}
+            </div>
             <Footer/>
         </div>
     );
